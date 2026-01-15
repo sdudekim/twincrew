@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LG Custom Fonts */
+@font-face {
+  font-family: 'LGEIText';
+  src: url('/fonts/LGEIText-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LGEIText';
+  src: url('/fonts/LGEIText-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LGEIText';
+  src: url('/fonts/LGEIText-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LGEIText';
+  src: url('/fonts/LGEIText-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes expand {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 200vmax;
+    height: 200vmax;
+  }
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 37 25% 91%;
+    --foreground: 0 0% 0%;
+
+    --card: 37 25% 91%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 37 25% 91%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 1 86% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 1 86% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 1 86% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 1 86% 51%;
+
+    --workflow-pending: 45 100% 50%;
+    --workflow-success: 1 86% 51%;
+    --workflow-error: 1 86% 51%;
+    --workflow-bg: 0 0% 85%;
+    
+    --gradient-workflow: linear-gradient(135deg, hsl(1 86% 51%), hsl(1 80% 55%));
+    --shadow-workflow: 0 10px 30px -5px hsl(1 86% 51% / 0.3);
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --agent-accent: 28 38% 70%;
+    --gradient-title-start: 1 98% 59%;
+    --gradient-title-end: 341 100% 32%;
+    --function-map-bg: 40 29% 95%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 37 25% 91%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 37 25% 91%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 37 25% 91%;
+
+    --primary: 1 86% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 37 25% 91%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 1 86% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 1 86% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 1 86% 51%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'LGEIText', ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  /* Ensure all elements inherit LG EI Text font */
+  *, *::before, *::after {
+    font-family: inherit;
+  }
+  
+  /* Dialog and popover font override */
+  [role="dialog"], [data-radix-popper-content-wrapper] {
+    font-family: 'LGEIText', ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  /* Search dim effect for non-matching profiles */
+  .search-dimmed {
+    opacity: 0.3;
+    filter: grayscale(0.5);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+  
+  .search-highlighted {
+    opacity: 1;
+    filter: none;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+}

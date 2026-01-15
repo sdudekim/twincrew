@@ -1,0 +1,64 @@
+project_id = "evyjuxnninzuywytbbzt"
+
+[functions.kai-background-removal]
+verify_jwt = false
+
+[functions.kai-proxy]
+verify_jwt = false
+
+[functions.kai-webhook-proxy]
+verify_jwt = false
+
+[functions.maple-scrape]
+verify_jwt = false
+
+[functions.maple-pdp-analyze]
+verify_jwt = false
+
+[functions.fotor-background-removal]
+verify_jwt = false
+
+[functions.ben-extract-images]
+verify_jwt = false
+
+[functions.ben-process-images]
+verify_jwt = false
+
+[functions.send-crew-request-email]
+verify_jwt = false
+
+[functions.anita-extract-carousel]
+verify_jwt = false
+
+[functions.anita-generate-lifestyle]
+verify_jwt = false
+
+[functions.anita-upscale]
+verify_jwt = false
+
+[functions.anita-resize-lifestyle]
+verify_jwt = false
+
+[functions.anita-generate-video]
+verify_jwt = false
+
+[functions.anita-edit-lifestyle]
+verify_jwt = false
+
+[functions.anita-photo-composite]
+verify_jwt = false
+
+[functions.ben-feedback-email]
+verify_jwt = false
+
+[functions.yumi-figma-layers]
+verify_jwt = false
+
+[functions.yumi-figma-export]
+verify_jwt = false
+
+[functions.yumi-extract-pdp-image]
+verify_jwt = false
+
+[functions.yumi-generate-lifestyle]
+verify_jwt = false
